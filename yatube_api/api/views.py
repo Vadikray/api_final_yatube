@@ -39,8 +39,8 @@ class FollowViewSet(viewsets.ModelViewSet):
 
     serializer_class = FollowSerializer
     permission_classes = [IsAuthenticated]
-    filter_backends = (filters.SearchFilter)
-    search_fields = ('following__username')
+    filter_backends = (filters.SearchFilter, )
+    search_fields = ('following__username', )
 
     def get_queryset(self):
         """Определения подписок"""
