@@ -72,3 +72,4 @@ http://127.0.0.1:8000/api/v1/posts/{post_id}/comments/{id}/
 "post": 0
 }
 ```
+# Автор: Конюшков В.А.

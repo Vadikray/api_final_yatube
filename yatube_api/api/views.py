@@ -9,6 +9,7 @@ from .serializers import (PostSerializer,
                           CommentSerializer,
                           FollowSerializer
                           )
+from .mixins import CreateListViewSet
 from posts.models import Post, Group, User
 
 
@@ -34,7 +35,7 @@ class GroupViewSet(viewsets.ReadOnlyModelViewSet):
     permission_classes = [IsOwnerOrReadOnly]
 
 
-class FollowViewSet(viewsets.ModelViewSet):
+class FollowViewSet(CreateListViewSet):
     """Вьюсет для подписок."""
 
     serializer_class = FollowSerializer

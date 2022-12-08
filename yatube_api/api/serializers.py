@@ -57,15 +57,13 @@ class FollowSerializer(serializers.ModelSerializer):
             )
         ]
 
-    def validate(self, data):
-        """Проверка подписки на себя"""
-
-        if self.context['request'].user == data['following']:
+    def validate_following(self, value):
+        if value == self.context['request'].user:
             raise serializers.ValidationError(
                 'Нельзя подписываться на себя'
             )
 
-        return data
+        return value
 
 
 class CommentSerializer(serializers.ModelSerializer):
